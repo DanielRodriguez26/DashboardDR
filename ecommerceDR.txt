@@ -1,0 +1,42 @@
+
+Django y React
+
+lista de comandos 
+
+--------crear proyecto de React
+npx create-react-app app --template cra-template-pwa
+
+--------intalar tailwindcss
+
+cd app
+npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+npm install @craco/craco
+
+
+en package.json cambiar:
+
+"start": "craco start",
+"build": "craco build",
+"test": "craco test",
+
+crear un archivo craco.config.js con:
+// craco.config.js
+module.exports = {
+  style: {
+    postOptions: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
+}
+
+npx tailwindcss-cli@latest init
+
+
+
+crea .evn
+
+SKIP_PREFLIGHT_CHECK=true
+REACT_APP_API_URL = 'http://localhost:8000'
