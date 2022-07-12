@@ -1,7 +1,7 @@
 MYSQL = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'efficientdrugstore',
+        'NAME': 'ecommerceDR',
         'USER': 'root',
         'PASSWORD': '123',
         'HOST': 'localhost',
