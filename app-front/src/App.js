@@ -9,6 +9,7 @@ import Error404 from "./containers/errors/Error404";
 import Login from "./containers/auth/Login";
 import Signup from "./containers/auth/Signup";
 import Activate from "./containers/auth/Activate";
+import Shop from "./containers/Shop";
 
 function App() {
     return (
@@ -16,8 +17,6 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="*" element={<Error404 />} />
-
-                    <Route exact path="/" element={<Home />} />
 
                     {/*Autentication*/}
                     <Route exact path="/signup" element={<Signup />} />
@@ -27,6 +26,9 @@ function App() {
                         path="/activate/:uid/:token"
                         element={<Activate />}
                     />
+
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/sop" element={<Shop />} />
                 </Routes>
             </Router>
         </Provider>

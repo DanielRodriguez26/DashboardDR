@@ -156,7 +156,7 @@ export default function Navbar() {
                                             <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
                                                 <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                                                     {solutions.map((item) => (
-                                                        <a
+                                                        <Link
                                                             key={item.name}
                                                             href={item.href}
                                                             className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50"
@@ -192,7 +192,7 @@ export default function Navbar() {
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                                 <div className="bg-gray-50">
@@ -232,10 +232,10 @@ export default function Navbar() {
                                 )}
                             </Popover>
                             <Link
-                                to="#"
+                                to="/sop"
                                 className="text-base font-medium text-gray-500 hover:text-gray-900"
                             >
-                                Store
+                                Shop
                             </Link>
                             <Link
                                 to=""
@@ -286,10 +286,7 @@ export default function Navbar() {
                                                             <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
                                                                 Company
                                                             </h3>
-                                                            <ul
-                                                                role="list"
-                                                                className="mt-5 space-y-6"
-                                                            >
+                                                            <ul className="mt-5 space-y-6">
                                                                 {company.map(
                                                                     (item) => (
                                                                         <li
@@ -323,10 +320,7 @@ export default function Navbar() {
                                                             <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
                                                                 Resources
                                                             </h3>
-                                                            <ul
-                                                                role="list"
-                                                                className="mt-5 space-y-6"
-                                                            >
+                                                            <ul className="mt-5 space-y-6">
                                                                 {resources.map(
                                                                     (item) => (
                                                                         <li
@@ -362,10 +356,7 @@ export default function Navbar() {
                                                             <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">
                                                                 From the blog
                                                             </h3>
-                                                            <ul
-                                                                role="list"
-                                                                className="mt-6 space-y-6"
-                                                            >
+                                                            <ul className="mt-6 space-y-6">
                                                                 {blogPosts.map(
                                                                     (post) => (
                                                                         <li
@@ -408,8 +399,8 @@ export default function Navbar() {
                                                             </ul>
                                                         </div>
                                                         <div className="mt-6 text-sm font-medium">
-                                                            <a
-                                                                href="#"
+                                                            <Link
+                                                                to="#"
                                                                 className="text-indigo-600 hover:text-indigo-500"
                                                             >
                                                                 {" "}
@@ -417,7 +408,7 @@ export default function Navbar() {
                                                                 <span aria-hidden="true">
                                                                     &rarr;
                                                                 </span>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -502,8 +493,8 @@ export default function Navbar() {
                                         ))}
                                     </div>
                                     <div className="mt-8 text-base">
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="#"
                                             className="font-medium text-indigo-600 hover:text-indigo-500"
                                         >
                                             {" "}
@@ -511,70 +502,70 @@ export default function Navbar() {
                                             <span aria-hidden="true">
                                                 &rarr;
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </nav>
                             </div>
                         </div>
                         <div className="py-6 px-5">
                             <div className="grid grid-cols-2 gap-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                                 >
                                     Pricing
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                                 >
                                     Docs
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                                 >
                                     Company
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                                 >
                                     Resources
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                                 >
                                     Blog
-                                </a>
+                                </Link>
 
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                                 >
                                     Contact Sales
-                                </a>
+                                </Link>
                             </div>
                             <div className="mt-6">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                                 >
                                     Sign up
-                                </a>
+                                </Link>
                                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                                     Existing customer?{" "}
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="text-indigo-600 hover:text-indigo-500"
                                     >
                                         Sign in
-                                    </a>
+                                    </Link>
                                 </p>
                             </div>
                         </div>
