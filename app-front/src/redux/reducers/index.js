@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-/*import Auth from './auth';
-import Alert from './alert';
+import { combineReducers } from "redux";
+import Auth from "./auth";
+/*import Alert from './alert';
 import Categories from './categories';
 import Products from './products';
 import Cart from './cart';
@@ -13,8 +13,8 @@ import Wishlist from './wishlist';
 import Reviews from './reviews';*/
 
 export default combineReducers({
-    /*Auth,
-    Alert,
+    Auth,
+    /*Alert,
     Categories,
     Products,
     Cart,
@@ -25,4 +25,4 @@ export default combineReducers({
     Profile,
     Wishlist,
     Reviews*/
-})
+});
