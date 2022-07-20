@@ -232,7 +232,7 @@ export default function Navbar() {
                                 )}
                             </Popover>
                             <Link
-                                to="/sop"
+                                to="/shop"
                                 className="text-base font-medium text-gray-500 hover:text-gray-900"
                             >
                                 Shop

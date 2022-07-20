@@ -9,6 +9,7 @@ y crear el proyecto de React
 
 
 npx create-react-app app-front --template cra-template-pwa
+npm i react-router-dom
 npm install react-scripts --save
 
 --------intalar tailwindcss
@@ -42,6 +43,8 @@ py manage.py migrate
 py manage.py createsuperuser
 
 
---------create app Django
+--------create app Django------------
 
+django-admin startapp user ./apps/user
 django-admin startapp category ./apps/category
+django-admin startapp product ./apps/product

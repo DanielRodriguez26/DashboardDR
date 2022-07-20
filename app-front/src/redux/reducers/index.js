@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import Auth from "./auth";
 import Categories from "./categories";
-/*import Products from './products';
-import Cart from './cart';
+import Products from "./products";
+/*import Cart from './cart';
 import Shipping from './shipping';
 import Payment from './payment';
 import Orders from './orders';
@@ -14,8 +14,8 @@ import Reviews from './reviews';*/
 export default combineReducers({
     Auth,
     Categories,
-    /*Products,
-    Cart,
+    Products,
+    /*Cart,
     Shipping,
     Payment,
     Orders,
