@@ -9,9 +9,8 @@ class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     date_created = models.DateField(default=datetime.now)
-    is_activate = models.IntegerField(default=0,max_length=1)
+    is_activate = models.IntegerField(default=0, max_length=1)
     password = models.CharField(max_length=255)
-
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
@@ -21,7 +20,7 @@ class User(models.Model):
 
     def __str__(self):
         return self.email
-    
+
     class Meta:
         verbose_name = 'User'
         verbose_name_plural = 'Users'

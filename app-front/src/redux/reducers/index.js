@@ -17,7 +17,7 @@ export default combineReducers({
     /*Alert,
     Categories,
     Products,
-    Cart,
+    /*Cart,
     Shipping,
     Payment,
     Orders,

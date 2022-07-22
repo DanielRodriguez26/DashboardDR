@@ -20,12 +20,12 @@ DOMAIN = os.environ.get('DOMAIN')
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    ]
+]
+
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
 
 
 DJANGO_APPS = [
@@ -37,9 +37,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-PROJECT_APPS=['apps.user']
-ECOMMERCE_APPS=[]
-THIRD_PARTY_APPS=[
+PROJECT_APPS = ['apps.user']
+ECOMMERCE_APPS = ['apps.category', 'apps.product']
+THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
     'djoser',
@@ -50,7 +50,7 @@ THIRD_PARTY_APPS=[
     'ckeditor_uploader',
 ]
 
-INSTALLED_APPS= DJANGO_APPS + PROJECT_APPS + ECOMMERCE_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + ECOMMERCE_APPS + THIRD_PARTY_APPS
 
 
 CKEDITOR_CONFIGS = {
@@ -141,13 +141,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -183,7 +181,7 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT', ),
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10080),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
-    'ROTATE_REFRESFH_TOKENS':True,
+    'ROTATE_REFRESFH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_TOKEN_CLASSES': (
         'rest_framework_simplejwt.tokens.AccessToken',
@@ -214,21 +212,18 @@ DJOSER = {
 }
 
 
-
 BT_ENVIRONMENT = os.environ.get('BT_ENVIRONMENT')
 BT_MERCHANT_ID = os.environ.get('BT_MERCHANT_ID')
 BT_PUBLIC_KEY = os.environ.get('BT_PUBLIC_KEY')
 BT_PRIVATE_KEY = os.environ.get('BT_PRIVATE_KEY')
 
 
-
-
-EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 if not DEBUG:
     DEFAULT_FROM_EMAIL = 'Drogueria Dr - lo mejor para tu salud <darc2611@gmail.com>'
-    EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = env('EMAIL_HOST')
     EMAIL_HOST_USER = env('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
