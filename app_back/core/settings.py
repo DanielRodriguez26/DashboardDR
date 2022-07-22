@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///ninerogues"),
+    "default": env.db("DATABASE_URL", default="postgres:///drogeriaDR"),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -153,7 +153,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../app-front/media')
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
@@ -213,19 +213,21 @@ DJOSER = {
     },
 }
 
+
+
 BT_ENVIRONMENT = os.environ.get('BT_ENVIRONMENT')
 BT_MERCHANT_ID = os.environ.get('BT_MERCHANT_ID')
 BT_PUBLIC_KEY = os.environ.get('BT_PUBLIC_KEY')
 BT_PRIVATE_KEY = os.environ.get('BT_PRIVATE_KEY')
 
 
-AUTH_USER_MODEL="user.UserAccount"
+
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 
 if not DEBUG:
-    DEFAULT_FROM_EMAIL = 'Vudera - Academia de Software <mail@vudera.com>'
+    DEFAULT_FROM_EMAIL = 'Drogueria Dr - lo mejor para tu salud <darc2611@gmail.com>'
     EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = env('EMAIL_HOST')
     EMAIL_HOST_USER = env('EMAIL_HOST_USER')

@@ -4,26 +4,40 @@ Django y React
 lista de comandos 
 
 --------crear proyecto de React
+instalar react y tailwindcss.
+y crear el proyecto de React
+
+
 npx create-react-app app-front --template cra-template-pwa
+npm i react-router-dom
 npm install react-scripts --save
 
---------intalar tailwindcss
+npm i axios
+# Free icons styles
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
 
+
+--------intalar tailwindcss
 cd app
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -pcd
-
-
 npx tailwindcss-cli@latest init
-
 npm run start
 npm run build
 
+pacage React 
 
+npm i axios
 crea .evn
 -----------Django-----------------------
+instralar los requerimientos 
+py -m pip install virtualenv
+py -m virtualenv env
 
 py -m pip install -r requirements.txt
+
+instalar Django y crear el proyecto
 
 source env/Scripts/activate
 django-admin startproject
@@ -32,7 +46,11 @@ py manage.py runserver
 py manage.py makemigrations
 py manage.py collectstatic
 py manage.py migrate
+py manage.py createsuperuser
 
 
---------create app Django
-django-admin startapp users ./apps/users
+--------create app Django------------
+
+django-admin startapp user ./apps/user
+django-admin startapp category ./apps/category
+django-admin startapp product ./apps/product
