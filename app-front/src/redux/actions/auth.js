@@ -1,28 +1,17 @@
-<<<<<<< HEAD
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
 } from "./types";
-=======
-import { SIGNUP_FAIL, SIGNUP_SUCCESS } from "./type";
 
->>>>>>> 5cc3a1f91dfaee34ce48687a1e5486a18dca00f8
 import axios from "axios";
 
 export const signup =
     (first_name, last_name, email, password, re_password) =>
-<<<<<<< HEAD
     async (dispatch) => {
         const config = {
             headers: {
-                Accept: "application/json",
-=======
-    async (dispath) => {
-        const config = {
-            headers: {
->>>>>>> 5cc3a1f91dfaee34ce48687a1e5486a18dca00f8
                 "Content-Type": "application/json",
             },
         };
