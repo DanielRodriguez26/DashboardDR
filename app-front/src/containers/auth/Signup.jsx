@@ -22,7 +22,6 @@ const Signup = ({
     }, [])
 
     const [requestSent, setRequestSent] = useState(false)
-    const [errorMessage, setErrorMessage] = useState(false)
     const [accountCreated, setAccountCreated] = useState(false)
     const [password, setPassword] = useState('')
     const [rePassword, setRePassword] = useState('')
@@ -40,16 +39,11 @@ const Signup = ({
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const handlePasswords = (name, value) => {
+    const handlePasswords = (e) => {
+
+        const name = e.target.name
+        const value = e.target.value
         name === 'password' ? setPassword(value) : setRePassword(value);
-        if (rePassword !== '') {
-            if (rePassword !== password) {
-                setErrorMessage(true);
-                return;
-            } else {
-                setErrorMessage(false);
-            }
-        }
     }
     const onSubmit = e => {
         e.preventDefault();
@@ -154,7 +148,7 @@ const Signup = ({
                                 name="password"
                                 value={password}
                                 required
-                                onChange={e => handlePasswords(e.target.name, e.target.value)}
+                                onChange={handlePasswords}
                                 placeholder="Password"
                             />
                             <span
@@ -172,17 +166,12 @@ const Signup = ({
                                 name="re_password"
                                 required
                                 value={rePassword}
-                                onChange={e => handlePasswords(e.target.name, e.target.value)}
+                                onChange={handlePasswords}
                                 placeholder="Re Password"
 
                             />
-
-                            <span
-
-                                data-placeholder=""
-                            />
                             {
-                                errorMessage && (<span className="focus-input100">Las contraseñas deben coisidir</span>)
+                                rePassword !== '' ? rePassword !== password ? <span className="focus-input100">Las contraseñas deben coisidir</span> : <span></span> : <span></span>
                             }
                         </div>
                         <div className="contact100-form-checkbox">

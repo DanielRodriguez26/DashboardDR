@@ -4,9 +4,21 @@ from .models import User
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email')
-    list_display_links = ('first_name', 'last_name', 'email')
-    search_fields = ('first_name', 'last_name', 'email')
+    list_display = (
+        'us_first_name',
+        'us_last_name',
+        'us_email'
+    )
+    list_display_links = (
+        'us_first_name',
+        'us_last_name',
+        'us_email'
+    )
+    search_fields = (
+        'us_first_name',
+        'us_last_name',
+        'us_email'
+    )
     list_per_page = 25
 
 
