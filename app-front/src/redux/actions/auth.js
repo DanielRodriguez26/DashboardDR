@@ -8,8 +8,7 @@ import {
 import axios from "axios";
 
 export const signup =
-    (first_name, last_name, email, password, re_password) =>
-    async (dispatch) => {
+    (first_name, last_name, email, password, dni) => async (dispatch) => {
         const config = {
             headers: {
                 "Content-Type": "application/json",
@@ -21,7 +20,7 @@ export const signup =
             last_name,
             email,
             password,
-            re_password,
+            dni,
         });
 
         try {

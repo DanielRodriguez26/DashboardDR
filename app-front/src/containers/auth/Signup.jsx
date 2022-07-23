@@ -30,11 +30,11 @@ const Signup = ({
         first_name: "",
         last_name: "",
         email: "",
+        dni: " ",
         password: "",
-        re_password: "",
     });
 
-    const { first_name, last_name, email } = formData;
+    const { first_name, last_name, email, dni } = formData;
 
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,7 +47,7 @@ const Signup = ({
     }
     const onSubmit = e => {
         e.preventDefault();
-        signup(first_name, last_name, email, password, rePassword);
+        signup(first_name, last_name, email, password, dni);
         setAccountCreated(true);
         window.scrollTo(0, 0)
         setRequestSent(true)
@@ -140,6 +140,24 @@ const Signup = ({
                         </div>
                         <div
                             className="wrap-input100 validate-input"
+                            data-validate="Enter username"
+                        >
+                            <input
+                                className="input100"
+                                type="number"
+                                name="dni"
+                                value={dni}
+                                required
+                                onChange={e => onChange(e)}
+                                placeholder="DNI"
+                            />
+                            <span
+                                className="focus-input100"
+                                data-placeholder=""
+                            />
+                        </div>
+                        <div
+                            className="wrap-input100 validate-input"
                             data-validate="Enter password"
                         >
                             <input
@@ -171,7 +189,7 @@ const Signup = ({
 
                             />
                             {
-                                rePassword !== '' ? rePassword !== password ? <span className="focus-input100">Las contraseñas deben coisidir</span> : <span></span> : <span></span>
+                                rePassword !== '' ? rePassword !== password ? <span className="focus-input100" data-placeholder="">Las contraseñas deben coisidir</span> : <span></span> : <span></span>
                             }
                         </div>
                         <div className="contact100-form-checkbox">

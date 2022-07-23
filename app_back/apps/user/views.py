@@ -23,11 +23,12 @@ class UserCreatedView(APIView):
             password = hashs(password)
 
             data = {
-                'first_name': request.data.get('first_name'),
-                'last_name':  request.data.get('last_name'),
-                'email':  request.data.get('email'),
-                'password': password,
-                'is_activate': 1
+                'us_first_name': request.data.get('first_name'),
+                'us_last_name':  request.data.get('last_name'),
+                'us_email':  request.data.get('email'),
+                'us_dni':  request.data.get('dni'),
+                'us_password': password,
+                'us_is_activate': 1
             }
 
             serializer = UserCreateSerializer(data=data)
@@ -56,15 +57,16 @@ class LoginVerify(APIView):
             result = []
             item = {}
 
-            if User.objects.filter(email=email).exists():
-                user = User.objects.get(email=email)
-                password = user.password
+            if User.objects.filter(us_email=email).exists():
+                user = User.objects.get(us_email=email)
+                password = user.us_password
 
                 if password == passHashed:
 
-                    item['first_name'] = user.first_name
-                    item['last_name'] = user.last_name
-                    item['email'] = user.email
+                    item['first_name'] = user.us_first_name
+                    item['last_name'] = user.us_last_name
+                    item['email'] = user.us_email
+                    item['dni'] = user.us_dni
                     item['valid'] = True
 
                     result.append(item)

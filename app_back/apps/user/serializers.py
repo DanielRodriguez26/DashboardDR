@@ -9,9 +9,10 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            "first_name",
-            "last_name",
-            "email",
-            "password",
-            "is_activate"
+            "us_first_name",
+            "us_last_name",
+            "us_email",
+            "us_dni",
+            "us_password",
+            "us_is_activate"
         ]
