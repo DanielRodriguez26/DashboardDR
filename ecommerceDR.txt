@@ -54,3 +54,4 @@ py manage.py createsuperuser
 django-admin startapp user ./apps/user
 django-admin startapp category ./apps/category
 django-admin startapp product ./apps/product
+django-admin startapp todo ./apps/todo

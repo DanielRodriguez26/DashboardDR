@@ -1,0 +1,13 @@
+from dataclasses import field
+from pyexpat import model
+from rest_framework import serializers
+from .models import Todo
+
+
+class TodoCreateSereializer(serializers.ModelSerializer):
+    class Meta:
+        model = Todo
+        fields = [
+            'td_name',
+            'td_description'
+        ]

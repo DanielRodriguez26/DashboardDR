@@ -11,7 +11,10 @@ const Layout = (props) => {
             <Navbar />
             <Aside />
             <ToastContainer autoClose={5000} />
-            {props.children}
+            <div className="content-wrapper" style={{ minHeight: "1301.84px" }}>
+                {props.children}
+            </div>
+
             <Footer />
         </div>
     );

@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faClipboardList } from "@fortawesome/free-solid-svg-icons";
+// <-- import styles to be used
 
 export default function Aside() {
     return (
@@ -41,8 +44,14 @@ export default function Aside() {
                     >
                         <li className="nav-item">
                             <Link to="/user" className="nav-link">
-                                <i className="nav-icon fas fa-th" />
+                                <FontAwesomeIcon icon={faUser} />
                                 <p>Users</p>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/todo" className="nav-link">
+                                <FontAwesomeIcon icon={faClipboardList} />
+                                <p>Todo</p>
                             </Link>
                         </li>
                     </ul>
