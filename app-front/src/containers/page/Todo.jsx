@@ -1,11 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../hooks/Layout";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { get_todo, todo_created } from "../../redux/actions/todo";
 
-const Todo = () => {
+import { connect } from "react-redux";
+import TodoCart from "../../components/navigation/todo/TodoCart";
 
+const Todo = ({ get_todo, todos_item, todo_created }) => {
+    const [formData, setFormData] = useState({
+        title: "",
+        description: "",
+    });
+
+    const { title, description } = formData;
+    console.log(todos_item);
+
+    const onChange = (e) =>
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        window.scrollTo(0, 0);
+        todo_created(title, description);
+        get_todo();
+    };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        get_todo();
+    }, []);
     return (
         <Layout>
             <section className="content-header">
@@ -16,7 +39,9 @@ const Todo = () => {
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                                <li className="breadcrumb-item">
+                                    <Link to="/">Home</Link>
+                                </li>
                                 <li className="breadcrumb-item active">Todo</li>
                             </ol>
                         </div>
@@ -29,50 +54,64 @@ const Todo = () => {
                         <div className="col-md-4">
                             <div className="card card-primary">
                                 <div className="card-header">
-                                    <h3 className="card-title">Quick Example</h3>
+                                    <h3 className="card-title">
+                                        Quick Example
+                                    </h3>
                                 </div>
-                                <form>
+                                <form onSubmit={(e) => onSubmit(e)}>
                                     <div className="card-body">
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Title</label>
-                                            <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+                                            <label htmlFor="exampleInputEmail1">
+                                                Title
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name="title"
+                                                value={title}
+                                                onChange={(e) => onChange(e)}
+                                            />
                                         </div>
 
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Description</label>
-                                            <textarea type="text" className="form-control" />
+                                            <label htmlFor="exampleInputEmail1">
+                                                Description
+                                            </label>
+                                            <textarea
+                                                type="text"
+                                                className="form-control"
+                                                name="description"
+                                                onChange={(e) => onChange(e)}
+                                                value={description}
+                                            />
                                         </div>
-
                                     </div>
                                     <div className="card-footer">
-                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary"
+                                        >
+                                            Submit
+                                        </button>
                                     </div>
                                 </form>
                             </div>
-
                         </div>
-                        <div className="col-md-6">
-                            <div className="card card-success">
-                                <div className="card-header">
-                                    <h3 className="card-title">Title Todo</h3>
-                                </div>
-                                <div className="card-body">
-
-                                    <label htmlFor="exampleInputEmail1">Description</label>
-                                    <label htmlFor="exampleInputEmail1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat eveniet laborum provident tenetur assumenda labore ducimus et culpa placeat unde, laboriosam mollitia repellendus error rerum molestiae? Repudiandae aliquam minus ipsa! </label>
-                                    <br />
-                                    <span class="time"><FontAwesomeIcon icon={faClock} /> 12:05</span>
-                                </div>
-
-                            </div>
+                        <div className="col-md-8">
+                            <TodoCart data={todos_item} />
                         </div>
                     </div>
                 </div>
             </section>
-
         </Layout>
-
     );
-}
+};
 
-export default Todo;
+const mapStateToProps = (state) => ({
+    todos_item: state.Todos.todos_item,
+});
+
+export default connect(mapStateToProps, {
+    get_todo,
+    todo_created,
+})(Todo);

@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import Auth from "./auth";
+import Todos from "./todo";
 /*import Alert from './alert';
 import Categories from './categories';
 import Products from './products';
@@ -14,6 +15,7 @@ import Reviews from './reviews';*/
 
 export default combineReducers({
     Auth,
+    Todos,
     /*Alert,
     Categories,
     Products,

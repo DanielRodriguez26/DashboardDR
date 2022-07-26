@@ -12,7 +12,7 @@ class TodoCreateViews(APIView):
     def post(self, request, format=None):
         try:
             data = {
-                "td_name": request.data.get('name'),
+                "td_name": request.data.get('title'),
                 "td_description": request.data.get('description')
             }
 
